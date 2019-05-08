@@ -4,7 +4,7 @@ node('larioy') {
         checkout scm
         script {
             build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
-            sh "echo env"
+            sh "env"
             if (env.BRANCH_NAME1 != 'master') {
                 build_tag = "${env.BRANCH_NAME1}-${build_tag}"
             }
